@@ -38,27 +38,34 @@ body {
     border-radius: 5px;
 }
 
-.form-group button {
-    width: 100%;
-    padding: 10px;
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.register-button {
+    width: auto; /* Permite que o botão tenha a largura do conteúdo */
+    padding: 10px 20px; /* Ajusta o espaçamento interno */
     font-size: 16px;
-    background-color: #28a745; /* Cor verde */
+    background-color: #28a745;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.form-group button:hover {
-    background-color: #218838; /* Cor verde mais escura */
+.register-button:hover {
+    background-color: #218838;
 }
 
 .error-message {
-    color: #dc3545; /* Cor vermelha */
+    color: #dc3545;
     margin-top: 5px;
 }
 
 .success-message {
-    color: #28a745; /* Cor verde */
+    color: #28a745;
     margin-top: 5px;
 }

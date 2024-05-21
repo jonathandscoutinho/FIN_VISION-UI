@@ -4,8 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     registerForm.addEventListener('submit', function(event) {
         event.preventDefault();
 
-        const fullName = document.getElementById('fullName').value;
-        const birthDate = document.getElementById('birthDate').value;
+        const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
         const confirmPassword = document.getElementById('confirmPassword').value;
@@ -16,8 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         const userData = {
-            fullName: fullName,
-            birthDate: birthDate,
+            name: name,
             email: email,
             password: password
         };
@@ -44,11 +42,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 registerForm.reset();
             } else {
                 alert('Ocorreu um erro ao registrar. Por favor, tente novamente.');
+                console.log(userData);
             }
         })
         .catch(error => {
             console.error('Erro:', error);
             alert('Ocorreu um erro ao registrar. Por favor, tente novamente.');
+            console.log(userData);
         });
     });
 });
