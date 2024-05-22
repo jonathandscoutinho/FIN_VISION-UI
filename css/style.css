@@ -5,26 +5,22 @@ body {
     background-color: #f4f4f4;
 }
 
-/* Animação de Fade-in para o formulário */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.container {
-    max-width: 400px;
-    margin: 80px auto;
+main {
+    max-width: 800px;
+    margin: 40px auto;
     background-color: #fff;
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 1s ease-in;
 }
 
-.login-form h2 {
-    margin-bottom: 30px;
+h1, h2 {
     text-align: center;
     color: #333;
+}
+
+form {
+    margin-bottom: 30px;
 }
 
 .form-group {
@@ -51,20 +47,9 @@ body {
     box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
 }
 
-/* Estilização do Placeholder */
-::placeholder {
-    color: #aaa;
-    font-style: italic;
-}
-
-.button-container {
-    display: flex;
-    justify-content: center;
-}
-
-.login-button {
-    width: auto;
-    padding: 10px 20px;
+form button {
+    width: 100%;
+    padding: 10px;
     font-size: 16px;
     background-color: #007bff;
     color: #fff;
@@ -74,31 +59,55 @@ body {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.login-button:hover {
+form button:hover {
     background-color: #0056b3;
     transform: scale(1.05);
 }
 
-.register-link {
+table {
+    width: 100%;
+    border-collapse: collapse;
     margin-top: 20px;
-    text-align: center;
 }
 
-.register-link a {
-    color: #007bff;
-    text-decoration: none;
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
 }
 
-.register-link a:hover {
-    text-decoration: underline;
+table th {
+    background-color: #28a745;
+    color: white;
 }
 
-.error-message {
-    color: #dc3545; /* Cor vermelha */
-    margin-top: 5px;
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
 }
 
-.success-message {
-    color: #28a745; /* Cor verde */
-    margin-top: 5px;
+table tr:hover {
+    background-color: #ddd;
+}
+
+table td {
+    color: #555;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-around;
+}
+
+.actions button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.actions button:hover {
+    background-color: #c82333;
 }
