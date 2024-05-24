@@ -1,7 +1,7 @@
 # APP FINVISION
 
 ### Descrição:
-Este é um projeto frontend desenvolvido com HTML, CSS e JavaScript, criado com o objetivo de fornecer uma interface amigável e responsiva para o controle de finanças. Através desse App, os usuários poderão inserir, editar e excluir suas finanças pessoais e salvar os dados em um servidor por meio de uma conexão com uma API REST.
+Este é um projeto frontend desenvolvido com HTML, CSS e JavaScript, criado com o objetivo de fornecer uma interface amigável para o controle de finanças. Através desse App, os usuários poderão listar, inserir, editar e excluir suas finanças pessoais e salvar os dados em um servidor por meio de uma conexão com uma API REST.
 
 ### Recursos e Funcionalidades:
 - Listar Finanças (automático).
