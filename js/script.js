@@ -1,5 +1,4 @@
-const baseURL = 'https://664fd801ec9b4a4a602ff654.mockapi.io/financa';
-
+const baseURL = 'http://localhost:8080/finance';
 // Função para listar todas as financas
 function listarFinancas() {
     fetch(baseURL)
@@ -9,7 +8,7 @@ function listarFinancas() {
             financaList.innerHTML = `
             <tr>
                 <th>ID</th>
-                <th>DATA</th>
+                <th>VENCIMENTO</th>
                 <th>DESCRIÇÃO</th>
                 <th>CATEGORIA</th>
                 <th>VALOR</th>
@@ -17,14 +16,16 @@ function listarFinancas() {
             </tr>
         `;
             data.forEach(financa => {
-                const dataFormatada = new Date(financa.data).toLocaleDateString('pt-BR');
-                const valorFormatado = parseFloat(financa.valor).toFixed(2);
+                const financaDate = new Date(financa.date);
+                financaDate.setHours(financaDate.getHours() + 3);
+                const dataFormatada = financaDate.toLocaleDateString('pt-BR');
+                const valorFormatado = parseFloat(financa.value).toFixed(2);
                 financaList.innerHTML += `
                 <tr>
                     <td>${financa.id}</td>
                     <td>${dataFormatada}</td>
-                    <td>${financa.descricao}</td>
-                    <td>${financa.categoria}</td>
+                    <td>${financa.description}</td>
+                    <td>${financa.category}</td>
                     <td>${valorFormatado}</td>
                     <td class="actions">
                         <a href="editar.html?id=${financa.id}" class="button edit-button">Editar</a>
@@ -62,71 +63,27 @@ function excluirFinanca(id) {
 // Função para cadastrar uma nova finança
 function cadastrarFinanca(event) {
     event.preventDefault();
-    const data = document.querySelector('#data').value;
-    const descricao = document.querySelector('#descricao').value;
-    const categoria = document.querySelector('#categoria').value;
-    const valor = parseFloat(document.querySelector('#valor').value).toFixed(2);
+    const date = document.querySelector('#date').value;
+    const description = document.querySelector('#description').value;
+    const category = document.querySelector('#category').value;
+    const value = parseFloat(document.querySelector('#value').value).toFixed(2);
 
     fetch(baseURL, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ data, descricao, categoria, valor })
+        body: JSON.stringify({ date, description, category, value })
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Finança cadastrada com sucesso:', data);
-        document.querySelector('#financa-form').reset();
-        listarFinancas();
-    })
-    .catch(error => console.error('Erro ao cadastrar finança:', error));
-}
-
-// Função para preencher o formulário com os dados da finança a ser editada
-function preencherFormulario() {
-    const params = new URLSearchParams(window.location.search);
-    const financaId = params.get('id');
-    if (financaId) {
-        fetch(`${baseURL}/${financaId}`)
         .then(response => response.json())
-        .then(financa => {
-            document.getElementById('id').value = financa.id;
-            document.getElementById('data').value = financa.data;
-            document.getElementById('descricao').value = financa.descricao;
-            document.getElementById('categoria').value = financa.categoria;
-            document.getElementById('valor').value = financa.valor;
+        .then(data => {
+            console.log('Finança cadastrada com sucesso:', data);
+            console.log(date);
+            console.log(description);
+            console.log(category);
+            console.log(value);
+            document.querySelector('#financa-form').reset();
+            listarFinancas();
         })
-        .catch(error => console.error('Erro ao buscar produto:', error));
-    }
+        .catch(error => console.error('Erro ao cadastrar finança:', error));
 }
-
-// Função para editar uma finança
-function editarFinanca(event) {
-    event.preventDefault();
-    const financaId = document.getElementById('id').value;
-    const data = document.getElementById('data').value;
-    const descricao = document.getElementById('descricao').value;
-    const categoria = document.getElementById('categoria').value;
-    const valor = parseFloat(document.getElementById('valor').value).toFixed(2);
-    
-    fetch(`${baseURL}/${financaId}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            data: data,
-            descricao: descricao,
-            categoria: categoria,
-            valor: valor
-        })
-    })
-    .then(() => {
-        console.log('Finança editada com sucesso');
-        window.location.href = 'cadastrar.html';
-    })
-    .catch(error => console.error('Erro ao editar finança:', error));
-}
-
-preencherFormulario();
