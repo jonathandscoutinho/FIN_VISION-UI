@@ -37,8 +37,6 @@ Este é um projeto frontend desenvolvido com HTML, CSS e JavaScript, criado com 
 ### Contribuição:
 Se você deseja contribuir para este projeto, sinta-se à vontade para fazer fork deste repositório, realizar melhorias ou correções e enviar um pull request. Toda contribuição é bem-vinda!
 
-[Clique aqui para acessar](https://jonathandscoutinho.github.io/finVision_front-spti/)
-
 ### Contato:
 
  <div> 
