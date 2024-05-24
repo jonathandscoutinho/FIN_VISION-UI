@@ -32,7 +32,7 @@ Este é um projeto frontend desenvolvido com HTML, CSS e JavaScript, criado com 
 ### Requisitos de Instalação:
 1. Clone este repositório em sua máquina local.
 2. Abra o arquivo `index.html` em seu navegador web para acessar a tela inicial.
-3. Para que os métodos CRUD funcionem, necessário utilizar algum mock de API ou baixe e configure a API deste projeto clicando <a href="https://github.com/jonathandscoutinho/finVision_front-spti" target="_blank">Aqui!</a>
+3. Para que os métodos CRUD funcionem, necessário utilizar algum mock de API ou baixe e configure a API deste projeto clicando <a href="https://github.com/jonathandscoutinho/finVision_back-spti" target="_blank">Aqui!</a>
 
 ### Contribuição:
 Se você deseja contribuir para este projeto, sinta-se à vontade para fazer fork deste repositório, realizar melhorias ou correções e enviar um pull request. Toda contribuição é bem-vinda!
