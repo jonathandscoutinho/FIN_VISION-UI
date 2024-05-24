@@ -1,4 +1,4 @@
-const baseURL = 'https://664cffb5ede9a2b556525a05.mockapi.io/gasto';
+const baseURL = 'https://664fd801ec9b4a4a602ff654.mockapi.io/financa';
 
 // Função para listar todas as financas
 function listarFinancas() {
@@ -17,13 +17,15 @@ function listarFinancas() {
             </tr>
         `;
             data.forEach(financa => {
+                const dataFormatada = new Date(financa.data).toLocaleDateString('pt-BR');
+                const valorFormatado = parseFloat(financa.valor).toFixed(2);
                 financaList.innerHTML += `
                 <tr>
                     <td>${financa.id}</td>
-                    <td>${financa.data}</td>
+                    <td>${dataFormatada}</td>
                     <td>${financa.descricao}</td>
                     <td>${financa.categoria}</td>
-                    <td>${financa.valor}</td>
+                    <td>${valorFormatado}</td>
                     <td class="actions">
                         <a href="editar.html?id=${financa.id}" class="button edit-button">Editar</a>
                         <a href="#" onclick="confirmarExclusao(${financa.id})" class="button delete-button">Excluir</a>
@@ -63,7 +65,7 @@ function cadastrarFinanca(event) {
     const data = document.querySelector('#data').value;
     const descricao = document.querySelector('#descricao').value;
     const categoria = document.querySelector('#categoria').value;
-    const valor = document.querySelector('#valor').value;
+    const valor = parseFloat(document.querySelector('#valor').value).toFixed(2);
 
     fetch(baseURL, {
         method: 'POST',
@@ -106,7 +108,7 @@ function editarFinanca(event) {
     const data = document.getElementById('data').value;
     const descricao = document.getElementById('descricao').value;
     const categoria = document.getElementById('categoria').value;
-    const valor = document.getElementById('valor').value;
+    const valor = parseFloat(document.getElementById('valor').value).toFixed(2);
     
     fetch(`${baseURL}/${financaId}`, {
         method: 'PUT',

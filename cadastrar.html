@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listagem de Finanças</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/button.css">
 </head>
 <body>
     <main>
@@ -20,11 +21,19 @@
             </div>
             <div class="form-group">
                 <label for="categoria">CATEGORIA:</label>
-                <input type="text" id="categoria" required>
+                <select id="categoria" required>
+                    <option value="" disabled selected>Selecione uma categoria</option>
+                    <option value="Alimentação">Alimentação</option>
+                    <option value="Transporte">Transporte</option>
+                    <option value="Saúde">Saúde</option>
+                    <option value="Lazer">Lazer</option>
+                    <option value="Educação">Educação</option>
+                    <option value="Outros">Outros</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="valor">VALOR:</label>
-                <input type="number" id="valor" required>
+                <input type="number" step="0.01" id="valor" required>
             </div>
             <button type="submit">CADASTRAR</button>
         </form>

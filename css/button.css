@@ -1,0 +1,23 @@
+/* Estilos gerais para os botões */
+.button {
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+}
+
+/* Estilo para o botão "Editar" */
+.edit-button {
+    background-color: #dfd004; /* Verde */
+}
+
+/* Estilo para o botão "Excluir" */
+.delete-button {
+    background-color: #f44336; /* Vermelho */
+}
+
+/* Efeitos de hover para os botões */
+.button:hover {
+    opacity: 0.8;
+}
